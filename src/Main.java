@@ -1,5 +1,5 @@
 /**
- * @(#)Main.java    0.1 11/02/2017
+ * @(#)Main.java    0.1 11/03/2017
  * Copyright    amazingyb
  */
 
@@ -8,11 +8,15 @@ import java.util.*;
 /**
  * This is the Main class of this project used to test the neural network.
  * @author amazingyb
- * @version 0.1 11/02/2017
+ * @version 0.1 11/03/2017
  * @since JDK1.8
  */
 public class Main{
 
+    /**
+     * The main function of the project.
+     * @param args  the command line arguments.
+     */
     static public void main(String[] args){
         // create a specified neural network
         NeuralNetwork a = new NeuralNetwork(2, 4, 2, 0.1);
