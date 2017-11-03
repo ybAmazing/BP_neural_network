@@ -1,5 +1,5 @@
 /**
- * @(#)NeuralNetwork.java   0.1 11/02/2017
+ * @(#)NeuralNetwork.java   0.1 11/03/2017
  * Copyright    amazingyb
  */
 
@@ -8,27 +8,27 @@ import java.util.*;
 /**
  * Class {@code NeuralNetwork} consist of the component of nueral network such as input layer, hide layer and ouput layer
  * @author amazingyb
- * @version 0.1 11/02/2017
+ * @version 0.1 11/03/2017
  * @since JDK1.8
  */
 public class NeuralNetwork {
-    /** the input layer of neural network */
+    /** The input layer of neural network which composed of a array of input node. */
     public ArrayList<InputNode> inputLayer;
-    /** the hide layer of neural network */
+    /** The hide layer of neural network which composed of a array of hide node. */
     public ArrayList<HideNode> hideLayer;
-    /** the output layer of neural network */
+    /** The output layer of neural network which composed of a array of output node. */
     public ArrayList<OutputNode> outputLayer;
 
-    /** the offset of the hide layer */
+    /** The offsets of the hide layer nodes */
     public double a[];
-    /** the offset of the output layer */
+    /** The offsets of the output layer nodes */
     public double b[];
-    /** the learning rate of neural network */
+    /** The learning rate of neural network */
     public double mu;
 
 
     /**
-     * the constructor of neural network
+     * Constructs neural network with the number of input layer, hide layer and output layer.
      * @param inputNodeN    the number of input layer nodes
      * @param hideNodeN     the number of hide layer nodes
      * @param outputNodeN   the number of output layer nodes
@@ -61,7 +61,7 @@ public class NeuralNetwork {
     }
 
     /**
-     * assign input value to the node of input layer of neural network
+     * Assign input value to the node of input layer of neural network.
      * @param arr   the input value vector
      */
     public void assginInput(double arr[]){
@@ -69,6 +69,9 @@ public class NeuralNetwork {
             inputLayer.get(i).inputValue = arr[i];
     }
 
+    /**
+     * Use the input value assigned to the input layer to compute the value of hide node and output node.
+     */
     public void propagate(){
         for(int i = 0; i < hideLayer.size(); i++){
             double sum = 0;
@@ -90,7 +93,7 @@ public class NeuralNetwork {
     }
 
     /**
-     * compute the difference between the real value and the output value
+     * Compute the difference between the real value and the output value.
      * @param arr   the real value vector
      */
     public void getError(double arr[]){
@@ -100,7 +103,7 @@ public class NeuralNetwork {
     }
 
     /**
-     * adjust the weight and offset of neural network according to the err of output node
+     * Adjust the weight and offset of neural network according to the err of output node.
      */
     public void feedback(){
         // update hidelayer output weight
@@ -132,7 +135,7 @@ public class NeuralNetwork {
     }
 
     /**
-     * use the train data to train the neural network, but only one record once
+     * Use the train data to train the neural network, but only one record once.
      * @param input     the input value of the record of train data
      * @param output    the real output value of the record of train data
      */
@@ -154,9 +157,9 @@ public class NeuralNetwork {
     }
 
     /**
-     * use the test data to test the neural network, but only one record once
+     * Use the test data to test the neural network, but only one record once.
      * @param input the input value of the record of test data
-     * @return      the output value array of the neural network using the <code>input</code> value
+     * @return      the output value array of the neural network using the {@code input} value
      */
     public double[] testOnce(double input[]){
         if(input == null || input.length != inputLayer.size()){
